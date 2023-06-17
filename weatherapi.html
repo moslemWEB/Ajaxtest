@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="button">API Test</button>
+    <div id="main">
+
+    </div>
+    <p id="flag"></p>
+    <script>
+        const main=document.getElementById("main");
+        const button=document.getElementById("button");
+        const flag=document.getElementById("flag");
+        
+            button.addEventListener("click",function(){
+                flag.innerHTML="button clicked!";
+                let xhr=new XMLHttpRequest();
+                xhr.addEventListener("readystatechange",function(){
+            main.innerHTML=xhr.responseText;
+
+        }),
+        xhr.open("GET","http://api.weatherapi.com/v1/current.json?key=8d10de1c097d4804b9280211231706&q=London&aqi=no");
+        xhr.send();
+
+            });
+        
+
+    </script>
+</body>
+</html>
+
+
+    
